@@ -4,3 +4,46 @@
 @import "variables";
 @import "mixins";
 @import "base";
+
+#carousel {
+	position: absolute;
+	width: 100%;
+	height: 90%;
+	overflow: hidden;
+}
+
+#carousel ul {
+	position: relative;
+	left: -100%;
+	list-style-type: none;
+	width: 400%;
+	height: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#carousel ul li {
+	width: 25%;
+	overflow: hidden;
+	text-align: center;
+	height: 100%;
+	list-style: none;
+	float: left;
+}
+
+#left_scroll {
+	position: absolute;
+	top: 40%;
+	transition: background-color 2s;
+}
+
+#right_scroll {
+	position: absolute;
+	top: 40%;
+	right: 0%;
+	transition: background-color 2s;
+}
+
+#left_scroll:hover, #right_scroll:hover {
+	background-color: #FFFFFF;
+}
