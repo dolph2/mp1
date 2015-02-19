@@ -20,3 +20,43 @@ $(document).ready(function(){
             })
     }); 
 });
+
+var secondaryNav = $('.not_scrolled'),
+    secondaryNavTopPosition = secondaryNav.offset().top;
+ 
+$(window).on('scroll', function(){
+    if($(window).scrollTop() > secondaryNavTopPosition ) {
+        secondaryNav.addClass('scrolled').removeClass('not_scrolled');  
+        $('.li_not_scrolled').addClass('li_scrolled').removeClass('li_not_scrolled');
+    } else {
+        secondaryNav.removeClass('scrolled').addClass('not_scrolled');
+        $('.li_scrolled').addClass('li_not_scrolled').removeClass('li_scrolled');
+    }
+    if($(window).scrollTop() >= $('#video').offset().top && $(window).scrollTop() < $('#carousel').offset().top) {
+        $('#video_nav').addClass('selected').removeClass('not_selected');
+        $('#carousel_nav').addClass('not_selected').removeClass('selected');
+    }
+    if($(window).scrollTop() >= $('#carousel').offset().top) {
+        $('#video_nav').addClass('not_selected').removeClass('selected');
+        $('#carousel_nav').addClass('selected').removeClass('not_selected');
+    }
+});
+
+$('a').click(function() {
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+    return false;
+});
+
+$('.modal').click(function() {
+    var dialog = document.getElementById('dialog');
+    dialog.showModal();
+
+});
+
+$('#close').click(function() {
+    var dialog = document.getElementById('dialog');
+    dialog.close();
+
+});
